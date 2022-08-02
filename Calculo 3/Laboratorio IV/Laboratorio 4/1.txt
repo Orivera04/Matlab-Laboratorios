@@ -1,0 +1,89 @@
+
+    if (cos(atan(MpendPerpendicular))) > 90 && (atan(MpendPerpendicular)) < 270 
+CompXCentro = eval(-(R * cos(atan(MpendPerpendicular))) + Px);
+    else 
+CompXCentro = eval((R * cos(atan(MpendPerpendicular))) + Px);
+    end
+        
+    if (atan(MpendPerpendicular)) > 180 && (atan(MpendPerpendicular)) < 360        
+CompYCentro = eval(-(R * sin(atan(MpendPerpendicular))) + Py);
+    else
+CompYCentro = eval((R * sin(atan(MpendPerpendicular))) + Py);
+    end;
+
+
+***************************************************************************************
+
+
+if MpendPerpendicular > 0
+ CompXCentro = eval(-(R * cos(atan(MpendPerpendicular))) + Px)
+ CompYCentro = eval(-(R * sin(atan(MpendPerpendicular))) + Py)
+else
+ CompXCentro = eval((R * cos(atan(MpendPerpendicular))) + Px)
+ CompYCentro = eval((R * sin(atan(MpendPerpendicular))) + Py)
+end
+  
+
+
+***********************************************************************************************
+
+
+
+if ((atan(MpendPerpendicular)) > 90 && (atan(MpendPerpendicular)) < 270 ) || (atan(MpendPerpendicular))
+CompXCentro = eval(-(R * cos(atan(MpendPerpendicular))) + Px);
+  
+    elseif (atan(MpendPerpendicular)) < 90
+        CompXCentro = eval((R * cos(atan(MpendPerpendicular))) + Px);
+    end;
+        
+    if ((atan(MpendPerpendicular)) > 180 && (atan(MpendPerpendicular)) < 360) || atan(MpendPerpendicular) < 0
+CompYCentro = eval(-(R * sin(atan(MpendPerpendicular))) + Py);
+    else
+CompYCentro = eval((R * sin(atan(MpendPerpendicular))) + Py);
+    end;
+
+***********************************************************************************************
+
+if (n > 0) && (n < 90) &&  (MpendPerpendicular > 0)
+    
+ CompXCentro = eval(-(R * cos(atan(MpendPerpendicular))) + Px)
+ CompYCentro = eval(-(R * sin(atan(MpendPerpendicular))) + Py)
+ 
+elseif (n > 0) && (n < 90) &&  (MpendPerpendicular < 0)
+ CompXCentro = eval((R * cos(atan(MpendPerpendicular))) + Px)
+ CompYCentro = eval((R * sin(atan(MpendPerpendicular))) + Py)
+ 
+elseif ((n > 90) && (n < 180) &&  (MpendPerpendicular > 0))
+        
+ CompXCentro = eval(-(R * cos(atan(MpendPerpendicular))) + Px)
+ CompYCentro = eval(-(R * sin(atan(MpendPerpendicular))) + Py)
+ 
+ elseif ((n > 90) && (n < 180) &&  (MpendPerpendicular < 0))
+ CompXCentro = eval((R * cos(atan(MpendPerpendicular))) + Px)
+ CompYCentro = eval((R * sin(atan(MpendPerpendicular))) + Py)
+
+elseif (n > 180)
+    CompXCentro = 1
+    CompYCentro = 1
+ 
+end
+  
+**************************************************************************************************************
+ sin cos de -3 a 3
+t y t2 -4 a 4
+
+if IC < 0
+ CompXCentro = eval((R * cos(atan(MpendPerpendicular))) + Px)
+ CompYCentro = eval((R * sin(atan(MpendPerpendicular))) + Py)
+elseif IC > 0
+ CompXCentro = eval(-(R * cos(atan(MpendPerpendicular))) + Px)
+ CompYCentro = eval(-(R * sin(atan(MpendPerpendicular))) + Py)
+end
+
+********************************************************************************************************************************************************************************************
+
+ECompXCentro = (F1 - ((((diff(syms(F1)))^2) + ((diff(syms(F2)))^2)) / ((diff(syms(F1))*diff(diff(syms(F2)))) - (diff(syms(F2))* diff(diff(syms(F1))))))) * (diff(syms(F2)))
+ECompYCentro = (F2 - ((((diff(syms(F1)))^2) + ((diff(syms(F2)))^2)) / ((diff(syms(F1))*diff(diff(syms(F2)))) - (diff(syms(F2))* diff(diff(syms(F1))))))) * (diff(syms(F1)))
+
+CompXCentro = subs(ECompXCentro, 't', IC)
+CompYCentro = subs(ECompYCentro, 't', IC)
